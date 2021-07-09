@@ -47,3 +47,10 @@ class UnitTestCase(TestCase):
         pulled_hash = Hash.objects.get(hash = '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824') # finding in db a hash object with this exact hash
         self.assertEqual(hash.text, pulled_hash.text) # asserting that text in hash.text is equal to pulled_hash
 
+    def test_viewing_hash(self):
+        hash = Hash() # gives us instance of hash object
+        hash.text = 'hello' # adding text and hash values to this new object
+        hash.hash = '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824'
+        hash.save() # saving to db       
+        response = self.client.get('/hash/2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824')
+        self.assertContains(response,'hello')
