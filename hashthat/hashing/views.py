@@ -20,3 +20,7 @@ def home(request):
 
     form = HashForm()
     return render(request, 'hashing/home.html', {'form':form})
+
+def hash(request, hash): # hash param specified in url pats
+    hash = Hash.objects.get(hash =hash)
+    return render(request, 'hashing/hash.html', {'hash':hash})
