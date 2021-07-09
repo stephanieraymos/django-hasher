@@ -45,5 +45,5 @@ class UnitTestCase(TestCase):
         hash.hash = '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824'
         hash.save() # saving to db
         pulled_hash = Hash.objects.get(hash = '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824') # finding in db a hash object with this exact hash
-        self.assertEqual(hash.text, pulled_hash) # asserting that text in hash.text is equal to pulled_hash
+        self.assertEqual(hash.text, pulled_hash.text) # asserting that text in hash.text is equal to pulled_hash
 
