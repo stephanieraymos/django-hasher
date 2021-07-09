@@ -1,1 +1,1 @@
-# django-hasher
+# Django Hasher
